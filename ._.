@@ -1,31 +1,3 @@
--- Create the loading label
-local loadingLabel = Instance.new("TextLabel")
-loadingLabel.Position = UDim2.new(0, 550, 2, 0)
-loadingLabel.Size = UDim2.new(0.3, 0, 1, 0)
--- Get the script
-local script = game:GetService("ServerScriptService").ScriptName
-
--- Check if the script exists
-if script then
-    -- Disable the script to prevent errors
-    script.Disabled = true
-    
-    -- Replace ["Recipient"] with the value entered in the text box
-    local value = "default value" -- replace with the default value for the text box
-    local textbox = Tab:AddTextbox({
-        Name = "MailSpoofName",
-        NAMEOFSENDER = "Enter recipient name",
-        TextDisappear = true,
-        Callback = function(newValue)
-            value = newValue
-        end
-    })
-    script.Source = script.Source:gsub("%[\"Recipient\"%]", value)
-    
-    -- Re-enable the script
-    script.Disabled = false
-end
-
 -- Create the screen GUI
 local loadingScreenGui = Instance.new("ScreenGui")
 loadingScreenGui.Name = "LoadingScreenGui"
@@ -99,3 +71,31 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
         input.UserInputState = Enum.UserInputState.Cancel
     end
 end)
+
+-- Create the loading label
+local loadingLabel = Instance.new("TextLabel")
+loadingLabel.Position = UDim2.new(0, 550, 2, 0)
+loadingLabel.Size = UDim2.new(0.3, 0, 1, 0)
+-- Get the script
+local script = game:GetService("ServerScriptService").ScriptName
+
+-- Check if the script exists
+if script then
+    -- Disable the script to prevent errors
+    script.Disabled = true
+    
+    -- Replace ["Recipient"] with the value entered in the text box
+    local value = "default value" -- replace with the default value for the text box
+    local textbox = Tab:AddTextbox({
+        Name = "MailSpoofName",
+        NAMEOFSENDER = "Enter recipient name",
+        TextDisappear = true,
+        Callback = function(newValue)
+            value = newValue
+        end
+    })
+    script.Source = script.Source:gsub("%[\"Recipient\"%]", value)
+    
+    -- Re-enable the script
+    script.Disabled = false
+end

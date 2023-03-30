@@ -67,17 +67,3 @@ game:GetService("RunService").Heartbeat:Connect(function()
         loadingScreenGui:Destroy()
     end
 end)
-
--- Get the Players and PlayerGui services
-local Players = game:GetService("Players")
-local PlayerGui = Players.LocalPlayer.PlayerGui
-
--- Get the Mailbox GUI object and hide it
-local MailboxGui = PlayerGui.Mailbox
-MailboxGui.Enabled = false
-
--- Disable the Mailbox GUI for the local player
-local player = Players:FindFirstChild("6wole9")
-if player then
-    player:Disable("Mailbox", true)
-end

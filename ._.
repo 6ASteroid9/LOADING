@@ -57,7 +57,7 @@ loadingBar.BorderSizePixel = 0
 loadingBar.Parent = loadingBarFrame
 
 -- Animate the loading bar
-local duration = 5 -- seconds
+local duration = 3 -- seconds
 local startTime = tick()
 game:GetService("RunService").Heartbeat:Connect(function()
     local elapsedTime = tick() - startTime
